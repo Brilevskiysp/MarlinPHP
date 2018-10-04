@@ -3,28 +3,28 @@
 // Загрузка файла
 class UploadFile {
 
-		protected $db;
+    protected $db;
 
-		public function __construct($db) {
+    public function __construct($db) {
         $this->db = $db;
-		}
+    }
 
-   	public function addFile($table, $files, $path) {
-      	foreach ($files as $file) {
-      			if ($file['name'] !== '') {
-				        $name = mt_rand(0, 1000) . $file['name'];
-				        move_uploaded_file($file['tmp_name'], "$path/$name");
-				        $result = "$path/$name";
-      			}
-    		}
-    		return $result;
-	  }
+    public function addFile($table, $files, $path) {
+        foreach ($files as $file) {
+            if ($file['name'] !== '') {
+                $name = mt_rand(0, 1000) . $file['name'];
+                move_uploaded_file($file['tmp_name'], "$path/$name");
+                $result = "$path/$name";
+            }
+        }
+        return $result;
+    }
 
-	  public function deleteFile($img) {
-	  		$file = "$path/$name";
+    public function deleteFile($img) {
+        $file = "$path/$name";
         if (file_exists($file))
             unlink($file);
-	  }
+    }
 }
 
 ?>
