@@ -19,10 +19,24 @@ $post = $db->getOne('posts', $id);
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <body>
 
-	<div class="container">
+	<div class="container list">
 		<div class="row">
-			<div class="col-md-8 offset-md-2">
 
+			<nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
+				<a class="navbar-brand" href="#">BLOG</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="/index.php">MainPage</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<div class="col-md-8 offset-md-2">
 				<form action="/update.php?id=<?php echo $post['id'];?>" method="POST">
 					<div class="form-group">
 						<label for=""><h2>Title</h2></label>

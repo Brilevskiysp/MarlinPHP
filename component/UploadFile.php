@@ -15,7 +15,6 @@ class UploadFile {
 				        $name = mt_rand(0, 1000) . $file['name'];
 				        move_uploaded_file($file['tmp_name'], "$path/$name");
 				        $result = "$path/$name";
-				        // $this->db->create($table, ['img' => "$path/$name", 'title' => $_POST['title']], $id);
       			}
     		}
     		return $result;
