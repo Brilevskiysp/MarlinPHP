@@ -5,7 +5,6 @@ $db = include "database/start.php";
 include "functions.php";
 include "component/UploadFile.php";
 
-dd($_SESSION);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {

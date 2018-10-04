@@ -1,11 +1,19 @@
+<?php
+include 'validation.php';
+
+session_start();
+$form = new UserForm("user");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Создать пост</title>
+  <title>My Blog</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/styles.css">
 <body>
 
     <div class="container list">
@@ -23,25 +31,27 @@
                         </li>
                     </ul>
                 </div>
-                <div class="registration">
-                    <a href="/registration.php">Sing in</a>
-                </div>
             </nav>
 
             <div class="col-md-8 offset-md-2">
-                <form action="/store.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for=""><h2>Title</h2></label>
-                        <input type="text" name="title" class="form-control">
+                <div class="form-wrap">
+                    <div class="profile"><img src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png">
+                        <h1>Registration</h1>
                     </div>
-                    <div class="form-group">
-                        <label for=""><h2>Выбрать изображение</h2></label><br>
-                        <input name="file" type="file"/>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-success">Add posts</button>
-                    </div>
-                </form>
+                    <form method="post" action="/registration.php">
+                        <div>
+                            <label for="name">Name</label>
+                            <input type='text' name='name' value="<?php $form->value("name"); ?>">
+                            <span class='error'><?php $form->error("name"); ?></span>
+                        </div>
+                        <div>
+                            <label for="email">E-mail</label>
+                            <input type='text' name='email' value="<?php $form->value("email"); ?>">
+                            <span class='error'><?php $form->error("email"); ?></span>
+                        </div>
+                        <button type="submit" class="btn btn-success">Send</button> 
+                    </form> 
+                </div>
             </div>
 
         </div>
